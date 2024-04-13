@@ -44,6 +44,11 @@ interface GamesApi {
     //Se llamaría a la función: getGameTest("21357", "amaury")
     //Se genera la url: https://www.serverbpw.com/cm/games/21357/amaury
 
+    //Con Apiary
+    @GET("games/game_detail/{id}")
+    fun getGameDetailApiary(
+        @Path("id") id: String?
+    ): Call<GameDetailDto>
 
 
 }

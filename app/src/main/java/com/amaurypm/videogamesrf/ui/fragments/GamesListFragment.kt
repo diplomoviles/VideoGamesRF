@@ -56,7 +56,11 @@ class GamesListFragment : Fragment() {
 
         lifecycleScope.launch {
 
-            val call: Call<List<GameDto>> = repository.getGames("cm/games/games_list.php")
+
+            //val call: Call<List<GameDto>> = repository.getGames("cm/games/games_list.php")
+
+            //Con Apiary:
+            val call: Call<List<GameDto>> = repository.getGames("games/games_list")
 
             call.enqueue(object : Callback<List<GameDto>> {
                 override fun onResponse(p0: Call<List<GameDto>>, response: Response<List<GameDto>>) {

@@ -14,4 +14,7 @@ class GameRepository(private val retrofit: Retrofit) {
 
     fun getGameDetail(id: String?): Call<GameDetailDto> = gamesApi.getGameDetail(id)
 
+    //Con Apiary
+    fun getGameDetailApiary(id: String?): Call<GameDetailDto> = gamesApi.getGameDetailApiary(id)
+
 }
