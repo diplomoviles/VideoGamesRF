@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.amaurypm.videogamesrf.R
 import com.amaurypm.videogamesrf.databinding.ActivityMainBinding
+import com.amaurypm.videogamesrf.ui.fragments.GamesListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +26,18 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        //Primera ejecución de la activity
+        if(savedInstanceState == null){
+            supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.fragment_container,
+                    GamesListFragment()
+                )
+                .commit()
+        }
+
+
 
         /*retrofit = RetrofitHelper().getRetrofit()
 
