@@ -46,9 +46,16 @@ class GamesListFragment : Fragment() {
 
                 val games = repository.getGames()
 
+                //Con Apiary
+                //val games = repository.getGamesApiary()
+
+                //Servidor con ApiKey:
+                //val response = repository.getGamesSecure("games/secure/games_list.php")
+
                 binding.rvGames.apply {
                     layoutManager = LinearLayoutManager(requireContext())
                     adapter = GamesAdapter(games){ selectedGame ->
+                    //adapter = GamesAdapter(response.games){ selectedGame ->   //Con ApiKey
                         //Click de cada juego
                         Log.d(Constants.LOGTAG, "Click en el juego ${selectedGame.title}")
                         //Pasamos al siguiente fragment con el id del juego seleccionado

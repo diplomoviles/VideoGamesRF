@@ -2,6 +2,7 @@ package com.amaurypm.videogamesrf.data.remote
 
 import com.amaurypm.videogamesrf.data.remote.model.GameDetailDto
 import com.amaurypm.videogamesrf.data.remote.model.GameDto
+import com.amaurypm.videogamesrf.data.remote.model.GamesDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -41,5 +42,11 @@ interface GamesApi {
         @Path("name")
         name: String?*/
     ): GameDetailDto
+
+    @GET
+    suspend fun getGamesSecure(
+        @Url
+        url: String?
+    ): GamesDto
 
 }

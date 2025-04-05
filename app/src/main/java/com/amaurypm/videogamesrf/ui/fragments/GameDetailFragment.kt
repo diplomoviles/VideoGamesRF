@@ -1,5 +1,9 @@
 package com.amaurypm.videogamesrf.ui.fragments
 
+import android.graphics.text.LineBreaker
+import android.os.Build
+import android.os.Build.VERSION_CODES
+import android.os.Build.VERSION_CODES.Q
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +16,7 @@ import com.amaurypm.videogamesrf.application.VideogamesRFApp
 import com.amaurypm.videogamesrf.data.GameRepository
 import com.amaurypm.videogamesrf.databinding.FragmentGameDetailBinding
 import com.amaurypm.videogamesrf.utils.Constants
+import com.amaurypm.videogamesrf.utils.isAtLeastAndroid
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 
@@ -55,6 +60,9 @@ class GameDetailFragment : Fragment() {
             try {
                 val gameDetail = repository.getGameDetail(gameId)
 
+                //Con Apiary
+                //val gameDetail = repository.getGamesDetailApiary(gameId)
+
                 binding.apply {
 
                     tvTitle.text = gameDetail.title
@@ -64,6 +72,11 @@ class GameDetailFragment : Fragment() {
                         .into(ivImage)
 
                     tvLongDesc.text = gameDetail.longDesc
+
+                    //if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                    isAtLeastAndroid(Q){
+                        tvLongDesc.justificationMode = LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+                    }
 
                 }
 

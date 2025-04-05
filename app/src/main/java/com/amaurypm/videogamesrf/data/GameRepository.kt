@@ -3,6 +3,7 @@ package com.amaurypm.videogamesrf.data
 import com.amaurypm.videogamesrf.data.remote.GamesApi
 import com.amaurypm.videogamesrf.data.remote.model.GameDetailDto
 import com.amaurypm.videogamesrf.data.remote.model.GameDto
+import com.amaurypm.videogamesrf.data.remote.model.GamesDto
 import retrofit2.Retrofit
 
 class GameRepository(
@@ -21,4 +22,6 @@ class GameRepository(
     suspend fun getGamesApiary(): List<GameDto> = gameApi.getGamesApiary()
 
     suspend fun getGamesDetailApiary(id: String?): GameDetailDto = gameApi.getGameDetailApiary(id)
+
+    suspend fun getGamesSecure(url: String?): GamesDto = gameApi.getGamesSecure(url)
 }

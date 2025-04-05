@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "837507142830",
+    "project_id": "mobileshopdm12a",
+    "storage_bucket": "mobileshopdm12a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837507142830:android:23c15462db40ba586f493f",
+        "android_client_info": {
+          "package_name": "com.amaurypm.mobileshopdm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDfnz1hSrgTuBEj9SnrXqSvBvbQqbN_dA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

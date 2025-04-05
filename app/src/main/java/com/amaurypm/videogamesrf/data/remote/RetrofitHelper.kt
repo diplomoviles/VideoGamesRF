@@ -1,5 +1,6 @@
 package com.amaurypm.videogamesrf.data.remote
 
+import com.amaurypm.videogamesrf.BuildConfig
 import com.amaurypm.videogamesrf.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -9,6 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 //Me va a ayudar a obtener la instancia a retrofit
 class RetrofitHelper {
 
+    //val apikey = "8dbf5d2a27c4178b4b036c49ae7"
+
     val interceptor = HttpLoggingInterceptor().apply {
         level =
             HttpLoggingInterceptor.Level.BODY //respuesta al nivel del body en la operación de red
@@ -16,6 +19,7 @@ class RetrofitHelper {
 
     val client = OkHttpClient.Builder().apply {
         addInterceptor(interceptor)
+        addInterceptor(ApiKeyInterceptor(BuildConfig.API_KEY))
     }.build()
 
     fun getRetrofit(): Retrofit = Retrofit.Builder()

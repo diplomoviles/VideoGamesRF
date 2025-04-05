@@ -1,13 +1,17 @@
 package com.amaurypm.videogamesrf.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.amaurypm.videogamesrf.BuildConfig
 import com.amaurypm.videogamesrf.R
 import com.amaurypm.videogamesrf.databinding.ActivityMainBinding
 import com.amaurypm.videogamesrf.ui.fragments.GamesListFragment
+import com.amaurypm.videogamesrf.utils.Constants
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +30,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        Log.d(Constants.LOGTAG, "El apikey desde local properties es: ${BuildConfig.API_KEY}")
+
+
 
         //Primera ejecución de la activity
         if(savedInstanceState == null){
