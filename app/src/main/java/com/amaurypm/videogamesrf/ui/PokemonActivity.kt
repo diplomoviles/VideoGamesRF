@@ -53,7 +53,11 @@ class PokemonActivity : AppCompatActivity() {
 
                 val pokemonDetail = pokemonApi.getPokemonDetail("25")
 
-                binding.tvPokemon.text = pokemonDetail.name
+                pokemonDetail.sprites.back_default
+
+                binding.tvPokemon.text = pokemonDetail.name.replaceFirstChar { char ->
+                    char.uppercase()
+                }
 
                 Glide.with(this@PokemonActivity)
                     .load(pokemonDetail.sprites.other.officialArtwork.frontDefault)
